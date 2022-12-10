@@ -11,8 +11,7 @@ $(function() {
 //----------------------------------USER MANAGEMENT-------------------------------------//
 var currentLoginUser; //現在ログイン中ユーザー
 
-function onRegisterBtn()
-{
+function onRegisterBtn() {
     //入力フォームからusername, password変数にセット
     var username = $("#reg_username").val();
     var password = $("#reg_password").val();
@@ -29,7 +28,7 @@ function onRegisterBtn()
                      .then(function(login_user) {
                          alert("新規登録とログイン成功");
                          currentLoginUser = ncmb.User.getCurrentUser();
-                     　  $.mobile.changePage('#DetailPage');
+                         $.mobile.changePage('#DetailPage');
                      })
                      .catch(function(error) {
                          alert("ログイン失敗！次のエラー発生: " + error);
@@ -40,8 +39,7 @@ function onRegisterBtn()
         });
 }
 
-function onLoginBtn()
-{
+function onLoginBtn() {
     var username = $("#login_username").val();
     var password = $("#login_password").val();
     // ユーザー名とパスワードでログイン
@@ -56,8 +54,7 @@ function onLoginBtn()
         });
 }
 
-function onLogoutBtn()
-{
+function onLogoutBtn() {
     ncmb.User.logout();
     alert('ログアウト成功');
     currentLoginUser = null;
