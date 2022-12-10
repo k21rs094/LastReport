@@ -1,0 +1,9 @@
+{
+    "watchForFileChanges": false,
+    "chromeWebSecurity": false,
+    "testFiles": [
+      "**/*.{feature,features}",
+      "signup.spec.js",
+      "signin.spec.js"
+    ]
+  }
