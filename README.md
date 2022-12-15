@@ -1,4 +1,13 @@
-﻿# Monaca x NIFCLOUD mobile backend 会員ログインサンプル
+# 最初に読むこと
+2022年後期「クラウドプログラミング演習」の最終課題のプログラムをここで管理する。
+
+https://github.com/NIFCLOUD-mbaas/monaca_login_template
+
+なお、**上記のプログラムをベースに開発した。**
+
+---
+
+# Monaca x NIFCLOUD mobile backend 会員ログインサンプル
 
 <!-- PJ Update 2020/07/13 -->
 <!-- JS SDK Ver. 3.0.0 -->
