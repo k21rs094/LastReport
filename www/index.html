@@ -11,6 +11,51 @@
   <script src="js/app.js"></script>
   <script src="js/cssua.min.js"></script>
 </head>
+    <script>
+        // NCMB アクセスの準備
+        let ncmb = new NCMB(appKey, clientKey);
+        // 利用するデータベースを指定（存在しなければ生成）
+        let TestClass = ncmb.DataStore("Book");
+        // コールバックの登録など
+        $(function() {
+            $("#message").html("initialized");
+            $("#btnA").click(function(e) {
+                btnAClick(e);
+            })
+            $("#btnB").click(function(e) {
+                btnBClick(e);
+            })
+        });
+
+        function btnAClick(e) {
+            // 登録するレコードを用意
+            let newRecord = new TestClass();
+            let key = $("#book_title").val();
+            let value = $("#book_price").val();
+            // レコードのフィールドと値を設定
+            newRecord.set(key, value);
+            // レコードをデータベースに登録
+            newRecord.save();
+            $("#message").html("btnA clicked !");
+        }
+
+        function btnBClick(e) {
+            // 登録するレコードを用意
+            let newRecord = new TestClass();
+            let key = $("#field").val();
+            let value = $("#value").val();
+            // レコードのフィールドと値を設定
+            newRecord.set(key, value);
+            // レコードをデータベースに登録
+            newRecord.save()
+                .then(function(m) {
+                    $("#message").html("New object created with objectId: " + newRecord.objectId);
+                })
+                .catch(function(err) {
+                    $("#message").html("Failed to create new object, with error code: " + JSON.stringify(err));
+                })
+        }
+    </script>
 <body>
 
   <!-- ログインページ -->
@@ -62,7 +107,10 @@
           <label for="book_price">Book price:</label>
           <input id="book_price" type="number" value="2090">
       </div>
-
+      <div id="button">
+          <!--Addボタン -->
+          <button id="Add_btn" class="btn" onclick="addBtn()">Add</button>
+      </div>
     </header>
     <section data-role="content">
       <!--Detail show-->
