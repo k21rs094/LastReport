@@ -102,6 +102,31 @@ function lookBtn() {
             msg += "<tr><th>" + data + "</th><th>" + update + "<br></th></tr>";
         }
         msg += "</table>";
-        $("#messageLook").html(msg);
+        $("#message").html(msg);
     })
+}
+
+// 本アプリで使うクラスの指定。const は定数の宣言。変更できない変数と思えば良い。
+const db = "Book";
+
+// SortPriceBtn関数
+function SortPriceBtn() {
+    let TestDataClass = ncmb.DataStore(db);
+    TestDataClass.order("Price", true).fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+}
+
+function showResults(results) {
+        var msg = "";
+        msg += "<table border=20 bgcolor=lightgreen style=font-size:20px>";
+        msg += "<tr><th bgcolor=yellow>Title</th><th bgcolor=yellow>Price</th></tr>";
+        for(var i = 0; i < results.length; i++) {
+            var data=results[i].get("Title");
+            var update=results[i].get("Price");
+            msg += "<tr><th>" + data + "</th><th>" + update + "<br></th></tr>";
+        }
+        msg += "</table>";
+        $("#message").html(msg);
 }
