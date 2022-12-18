@@ -65,7 +65,7 @@ function onLogoutBtn() {
 
 // ----------------------------ここから下に書く-------------------------------
 
-
+// addBtn関数
 function addBtn() {
     // 利用するデータベースを指定（存在しなければ生成）
     var TestClass = ncmb.DataStore("Book");
@@ -85,5 +85,23 @@ function addBtn() {
     })
     .catch(function(err){
     $("#message").html("Failed: " + JSON.stringify(err));
+    })
+}
+
+// lookBtn関数
+function lookBtn() {
+    var TestClass = ncmb.DataStore("Book");
+    TestClass.fetchAll()
+    .then(function(results){
+        var msg = "";
+        msg += "<table border=20 bgcolor=lightgreen style=font-size:15px>";
+        msg += "<tr><th>Title</th><th>Price</th></tr>";
+        for(var i = 0; i < results.length; i++) {
+            var data=results[i].get("Title");
+            var update=results[i].get("Price");
+            msg += "<tr><th>" + data + "</th><th>" + update + "<br></th></tr>";
+        }
+        msg += "</table>";
+        $("#messageLook").html(msg);
     })
 }
