@@ -1,3 +1,4 @@
+// NCMB アクセスの準備
 var ncmb = new NCMB(appKey, clientKey);
 
 ///// Called when app launch
@@ -59,4 +60,30 @@ function onLogoutBtn() {
     alert('ログアウト成功');
     currentLoginUser = null;
     $.mobile.changePage('#LoginPage');
+}
+
+
+// ----------------------------ここから下に書く-------------------------------
+
+
+function addBtn() {
+    // 利用するデータベースを指定（存在しなければ生成）
+    var TestClass = ncmb.DataStore("Book");
+    // 登録するレコードを用意
+    var testClass = new TestClass();
+    var key1 = "Title";
+    var value1 = $("#book_title").val();
+    var key2 = "Price";
+    var value2 = $("#book_price").val();
+    // レコードのフィールドと値を設定
+    testClass.set(key1, value1);
+    testClass.set(key2, value2);
+    // レコードをデータベースに登録
+    testClass.save()
+    .then(function(m) {
+    $("#message").html("Success");
+    })
+    .catch(function(err){
+    $("#message").html("Failed: " + JSON.stringify(err));
+    })
 }
