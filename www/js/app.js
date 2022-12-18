@@ -94,8 +94,8 @@ function lookBtn() {
     TestClass.fetchAll()
     .then(function(results){
         var msg = "";
-        msg += "<table border=20 bgcolor=lightgreen style=font-size:15px>";
-        msg += "<tr><th>Title</th><th>Price</th></tr>";
+        msg += "<table border=20 bgcolor=lightgreen style=font-size:20px>";
+        msg += "<tr><th bgcolor=yellow>Title</th><th bgcolor=yellow>Price</th></tr>";
         for(var i = 0; i < results.length; i++) {
             var data=results[i].get("Title");
             var update=results[i].get("Price");

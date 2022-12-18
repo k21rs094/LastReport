@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <script src="components/loader.js"></script>
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/ncmb-latest.min.js"></script>
+  <script src="js/keys.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/cssua.min.js"></script>
+</head>
+<body>
+  <!-- 詳細ページ1 -->
+  <div data-role="page" id="#Page1">
+    <header data-role="header" data-position="fixed" data-theme="c">
+      <h1>アプリデモ</h1>
+      <div id="button">
+          <!--Lookボタン -->
+          <button id="Look_btn" class="btn" onclick="lookBtn()">Look</button>
+          <!-- 直前のページに戻る -->
+          <button onclick="history.back()">戻る</button>
+      </div>
+      <div id="messageLook">message area</div>
+      </div>
+    </header>
+    <section data-role="content">
+      <!--Detail show-->
+      <div data-role="content" id="detailArea">ようこそ！ログイン成功しました！</div>
+      <!--Dialog box confirming logout-->
+      <div data-role="popup" id="yesNoDialog_logout" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
+        <div data-role="header" data-theme="c" class="ui-corner-top" style="top: 0 !important;">
+          <h1>ログアウト確認</h1>
+        </div>
+        <div align="middle" data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+          <h3 class="ui-title">
+          <p>ログアウトしてもよろしいですか？</p>
+          <a href="#" id="YesBtn_logout" data-role="button" data-inline="true" data-transition="flow" data-theme="b">はい</a>
+          <a href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="b">いいえ</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
