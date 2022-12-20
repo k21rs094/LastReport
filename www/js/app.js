@@ -127,6 +127,20 @@ function SortTitleBtn() {
         })
 }
 
+// countBook関数
+function countBookBtn(results) {
+    let TestDataClass = ncmb.DataStore(db);
+    TestDataClass.count().fetchAll()
+        .then(function(results) {
+            var msg = String(results.count) + "冊が管理されています。";
+            $("#cntmessage").html(msg);
+        })
+        .catch(function(err){
+            var msg = "Error:" + err;
+            $("#cntmessage").html(msg);
+        });
+}
+
 function showResults(results) {
         var msg = "";
         msg += "<table border=20 bgcolor=lightgreen style=font-size:20px>";
