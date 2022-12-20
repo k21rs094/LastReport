@@ -118,6 +118,15 @@ function SortPriceBtn() {
         })
 }
 
+// SortTitleBtn関数
+function SortTitleBtn() {
+    let TestDataClass = ncmb.DataStore(db);
+    TestDataClass.order("Title", false).fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+}
+
 function showResults(results) {
         var msg = "";
         msg += "<table border=20 bgcolor=lightgreen style=font-size:20px>";
