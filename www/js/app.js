@@ -81,11 +81,11 @@ function addBtn() {
     // レコードをデータベースに登録
     testClass.save()
     .then(function(m) {
-    $("#message").html("Success");
+    $("#message").html("登録しました。");
     countBookBtn(); // この関数の機能的には、本棚にある本の数も表示するのが望ましい
     })
     .catch(function(err){
-    $("#message").html("Failed: " + JSON.stringify(err));
+    $("#message").html("登録に失敗しました。:" + JSON.stringify(err));
     })
 }
 
@@ -151,20 +151,20 @@ function countBookBtn(results) {
         })
         .then(function(results) {
           $("#message").removeClass();
-          $("#message").html("<font color='#ff0000'> delete success <br>");
+          $("#message").html("<font color='#ff0000'> 削除成功 <br>");
           countBookBtn();  // データを1つ消すとcountの値も1つ減るので、countの結果を一致させるためにcountBookBtn関数も呼び出す
         })
         .catch(function(error) {
           $("#message").removeClass();
           $("#message").addClass("bg-warning");
-          $("#message").html("delete fail:" + JSON.stringify(error));
+          $("#message").html("削除失敗:" + JSON.stringify(error));
         })
 }
 
 function showResults(results) {
         var msg = "";
         msg += "<table border=20 bgcolor=lightgreen style=font-size:20px>";
-        msg += "<tr><th bgcolor=yellow>Title</th><th bgcolor=yellow>Price</th></tr>";
+        msg += "<tr><th bgcolor=yellow>タイトル</th><th bgcolor=yellow>価格(税込)</th></tr>";
         for(var i = 0; i < results.length; i++) {
             var data=results[i].get("Title");
             var update=results[i].get("Price");

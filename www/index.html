@@ -16,7 +16,7 @@
   <!-- ログインページ -->
   <div data-role="page" id="LoginPage">
     <header data-role="header" data-position="fixed" data-theme="c">
-      <h1>アプリデモ</h1>
+      <h1>本棚アプリ</h1>
     </header>
       <section data-role="content">
       <h1>ログイン</h1>
@@ -24,7 +24,7 @@
         <input type="text" id="login_username">
       パスワード
         <input type="password" id="login_password">
-      新規登録？
+      新規登録はこちらから→
         <a href="#RegisterPage" data-role="button" data-mini="true" data-inline="true" data-theme="b">登録</a>
         <a href="#" id="LoginBtn" data-role="button" data-inline="false" data-theme="b">ログインする</a>
       </section>
@@ -33,7 +33,7 @@
   <!-- 登録ページ -->
   <div data-role="page" id="RegisterPage">
     <header data-role="header" data-position="fixed" data-theme="c">
-      <h1>アプリデモ</h1>
+      <h1>本棚アプリ</h1>
     </header>
       <section data-role="content">
       <h1>新規登録</h1>
@@ -49,29 +49,29 @@
   <!-- 詳細ページ -->
   <div data-role="page" id="DetailPage">
     <header data-role="header" data-position="fixed" data-theme="c">
-      <h1>アプリデモ</h1>
+      <h1>本棚アプリ<br>【本の登録ページ】</h1>
       <a href="#yesNoDialog_logout" class="ui-btn-left" data-rel="popup" data-position-to="window" data-role="button" data-inline="false" data-theme="b">ログアウト</a>
       <!--本のタイトルの入力欄 -->
       <div>
-          <label for="book_title">Book title:</label>
+          <label for="book_title">タイトル名</label>
           <input id="book_title" type="text" value="Ex:Harry Potter">
       </div>
 
       <!--本の税込価格の入力欄 -->
       <div>
-          <label for="book_price">Book price:</label>
+          <label for="book_price">価格(税込)</label>
           <input id="book_price" type="number" value="2090">
       </div>
       <div id="button">
           <!--Addボタン -->
-          <button id="Add_btn" class="btn" onclick="addBtn()">Add</button>
+          <button id="Add_btn" class="btn" onclick="addBtn()">登録する</button>
           <!-- 遷移の実装方法は次のサイトを参考にした -->
           <!-- https://qiita.com/SUGISHIA/items/d4d8b48be48767c17815 -->
           <!-- page1.htmlへ遷移 -->
-          <button onclick="location.href='./page1.html'">本棚へ移動</button>
+          <button onclick="location.href='./page1.html'">本棚へ移動する</button>
       </div>
-      <div id="message">message area</div>
-      <div id="cntmessage">count book message area</div>
+      <div id="message">メッセージエリア</div>
+      <div id="cntmessage">メッセージエリア(カウント情報)</div>
     </header>
     <section data-role="content">
       <!--Detail show-->

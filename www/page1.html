@@ -15,23 +15,23 @@
   <!-- 詳細ページ1 -->
   <div data-role="page" id="#Page1">
     <header data-role="header" data-position="fixed" data-theme="c">
-      <h1>アプリデモ</h1>
+      <h1>本棚アプリ<br>【My本棚】</h1>
       <div id="button">
           <!--Lookボタン -->
-          <button id="Look_btn" class="btn" onclick="lookBtn()">Look</button>
+          <button id="Look_btn" class="btn" onclick="lookBtn()">本棚を表示する</button>
           <!--SortPriceボタン -->
-          <button id="Sort_price_btn" class="btn" onclick="SortPriceBtn()">Sort Price(expensive)</button>
+          <button id="Sort_price_btn" class="btn" onclick="SortPriceBtn()">価格の高い順</button>
           <!--SortTitleボタン -->
-          <button id="Sort_title_btn" class="btn" onclick="SortTitleBtn()">Sort Title</button>
+          <button id="Sort_title_btn" class="btn" onclick="SortTitleBtn()">タイトル順</button>
           <!--countBookボタン -->
-          <button id="count_book_btn" class="btn" onclick="countBookBtn()">Count Book</button>
+          <button id="count_book_btn" class="btn" onclick="countBookBtn()">冊数を表示する</button>
           <!--deleteBookボタン -->
-          <button id="delete_book_btn" class="btn" onclick="deleteBookBtn()"><font color="#ff0000">Delete Book</font></button>
+          <button id="delete_book_btn" class="btn" onclick="deleteBookBtn()"><font color="#ff0000">本を削除する</font></button>
           <!-- 直前のページに戻る -->
           <button onclick="history.back()">戻る</button>
       </div>
-      <div id="message">message area</div>
-      <div id="cntmessage">count book message area</div>
+      <div id="cntmessage">メッセージエリア(カウント情報)</div>
+      <div id="message">メッセージエリア</div>
       </div>
     </header>
     <section data-role="content">
