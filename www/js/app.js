@@ -68,18 +68,18 @@ function onLogoutBtn() {
 // addBtn関数
 function addBtn() {
     // 利用するデータベースを指定（存在しなければ生成）
-    var TestClass = ncmb.DataStore("Book");
+    var BookClass = ncmb.DataStore("Book");
     // 登録するレコードを用意
-    var testClass = new TestClass();
+    var bookClass = new BookClass();
     var key1 = "Title";
     var value1 = $("#book_title").val();
     var key2 = "Price";
     var value2 = $("#book_price").val();
     // レコードのフィールドと値を設定
-    testClass.set(key1, value1);
-    testClass.set(key2, value2);
+    bookClass.set(key1, value1);
+    bookClass.set(key2, value2);
     // レコードをデータベースに登録
-    testClass.save()
+    bookClass.save()
     .then(function(m) {
     $("#message").html("登録しました。");
     countBookBtn(); // この関数の機能的には、本棚にある本の数も表示するのが望ましい
@@ -91,12 +91,12 @@ function addBtn() {
 
 // lookBtn関数
 function lookBtn() {
-    var TestClass = ncmb.DataStore("Book");
-    TestClass.fetchAll()
+    var BookClass = ncmb.DataStore("Book");
+    BookClass.fetchAll()
     .then(function(results){
         var msg = "";
         msg += "<table border=20 bgcolor=lightgreen style=font-size:20px>";
-        msg += "<tr><th bgcolor=yellow>Title</th><th bgcolor=yellow>Price</th></tr>";
+        msg += "<tr><th bgcolor=yellow>タイトル</th><th bgcolor=yellow>価格(税込)</th></tr>";
         for(var i = 0; i < results.length; i++) {
             var data=results[i].get("Title");
             var update=results[i].get("Price");
@@ -112,8 +112,8 @@ const db = "Book";
 
 // SortPriceBtn関数
 function SortPriceBtn() {
-    let TestDataClass = ncmb.DataStore(db);
-    TestDataClass.order("Price", true).fetchAll()
+    var BookClass = ncmb.DataStore(db);
+    BookClass.order("Price", true).fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -121,8 +121,8 @@ function SortPriceBtn() {
 
 // SortTitleBtn関数
 function SortTitleBtn() {
-    let TestDataClass = ncmb.DataStore(db);
-    TestDataClass.order("Title", false).fetchAll()
+    var BookClass = ncmb.DataStore(db);
+    BookClass.order("Title", false).fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -130,8 +130,8 @@ function SortTitleBtn() {
 
 // countBook関数
 function countBookBtn(results) {
-    let TestDataClass = ncmb.DataStore(db);
-    TestDataClass.count().fetchAll()
+    var BookClass = ncmb.DataStore(db);
+    BookClass.count().fetchAll()
         .then(function(results) {
             var msg = String(results.count) + "冊が管理されています。";
             $("#cntmessage").html(msg);
@@ -144,8 +144,8 @@ function countBookBtn(results) {
 
 // deleteBook関数
     function deleteBookBtn() {
-    let TestDataClass = ncmb.DataStore(db);
-    TestDataClass.fetch()
+    var BookClass = ncmb.DataStore(db);
+    BookClass.fetch()
         .then(function(results) {
             return results.delete();
         })
