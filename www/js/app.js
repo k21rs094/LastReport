@@ -77,7 +77,7 @@ function addBtn() {
     var value2 = $("#book_price").val();
     // レコードのフィールドと値を設定
     bookClass.set(key1, value1);
-    bookClass.set(key2, value2);
+    bookClass.set(key2, parseInt(value2));
     // レコードをデータベースに登録
     bookClass.save()
     .then(function(m) {
