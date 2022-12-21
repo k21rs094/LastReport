@@ -141,6 +141,25 @@ function countBookBtn(results) {
         });
 }
 
+// deleteBook関数
+    function deleteBookBtn() {
+    let TestDataClass = ncmb.DataStore(db);
+    TestDataClass.fetch()
+        .then(function(results) {
+            return results.delete();
+        })
+        .then(function(results) {
+          $("#message").removeClass();
+          $("#message").html("<font color='#ff0000'> delete success <br>");
+          countBookBtn();  // データを1つ消すとcountの値も1つ減るので、countの結果を一致させるためにcountBookBtn関数も呼び出す
+        })
+        .catch(function(error) {
+          $("#message").removeClass();
+          $("#message").addClass("bg-warning");
+          $("#message").html("delete fail:" + JSON.stringify(error));
+        })
+}
+
 function showResults(results) {
         var msg = "";
         msg += "<table border=20 bgcolor=lightgreen style=font-size:20px>";
