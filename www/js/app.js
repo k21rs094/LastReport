@@ -110,10 +110,19 @@ function lookBtn() {
 // 本アプリで使うクラスの指定。const は定数の宣言。変更できない変数と思えば良い。
 const db = "Book";
 
-// SortPriceBtn関数
-function SortPriceBtn() {
+// SortExpensivePriceBtn関数
+function SortExpensivePriceBtn() {
     var BookClass = ncmb.DataStore(db);
     BookClass.order("Price", true).fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+}
+
+// SortCheepPriceBtn関数
+function SortCheepPriceBtn() {
+    var BookClass = ncmb.DataStore(db);
+    BookClass.order("Price", false).fetchAll()
         .then(function(results) {
           showResults(results);
         })
