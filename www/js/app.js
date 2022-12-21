@@ -82,6 +82,7 @@ function addBtn() {
     testClass.save()
     .then(function(m) {
     $("#message").html("Success");
+    countBookBtn(); // この関数の機能的には、本棚にある本の数も表示するのが望ましい
     })
     .catch(function(err){
     $("#message").html("Failed: " + JSON.stringify(err));
